@@ -1,4 +1,5 @@
 from django.shortcuts import render
 
-def home(request):
-	return render_to_response('afectado.html')
+def lista_afectados(request):
+	return render(request, 'afectado/lista_afectados.html', {})
+	
