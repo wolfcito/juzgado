@@ -19,28 +19,18 @@
         <th>Cédula</th>
         <th>Nombre(s) Apellido(s)</th>
         <th>Teléfono</th>
-        <th>Descripción</th>
+        <th>Dirección</th>
       </tr>
     </thead>
     <tbody>
+    {% for unAfectado in listado %}
       <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-        <td>john@example.com</td>
+        <td>{{unAfectado.cedula_afectado}}</td>
+        <td>{{unAfectado.nombre}} {{unAfectado.apellido}} </td>
+        <td>{{unAfectado.telf_afecto}}</td>
+        <td>{{unAfectado.direccion}}</td>
       </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-        <td>john@example.com</td>
-      </tr>
+    {% endfor %}
     </tbody>
   </table>
 </div>
