@@ -1,0 +1,23 @@
+html, body{
+    font-family: sans-serif;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+textarea{
+    resize: none;
+}
+
+#content{
+    max-width: 800px;
+    margin:  auto;
+}
+
+#logCambios{
+    height:200px;
+    border: 1px solid #ccc;
+    overflow-y: scroll;
+}
