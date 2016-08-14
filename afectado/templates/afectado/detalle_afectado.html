@@ -1,0 +1,25 @@
+{% extends 'afectado/base.html' %}
+{% block content %}
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Cédula</th>
+        <th>Apellido(s)</th>
+        <th>Nombre(s)</th>
+        <th>Teléfono</th>
+        <th>Dirección</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% if detalle %}
+      <tr>
+        <td>{{detalle.cedula_afectado}}</td>
+        <td>{{detalle.apellido}} </td>
+        <td>{{detalle.nombre}} </td>
+        <td>{{detalle.telf_afecto}}</td>
+        <td>{{detalle.direccion}}</td>
+      </tr>
+    {% endif %}
+    </tbody>
+  </table>
+  {% endblock %}
