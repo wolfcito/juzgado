@@ -1,5 +1,6 @@
 {% extends 'afectado/base.html' %}
 {% block content %}
+<p><a class="btn btn-default" href="{% url 'editar_afectado' id=detalle.pk %}"><span class="glyphicon glyphicon-pencil"></span></a></p>
   <table class="table table-hover">
     <thead>
       <tr>

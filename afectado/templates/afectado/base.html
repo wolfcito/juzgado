@@ -7,10 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="{% static 'img/ico.png' %}"/>
   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
-
-<script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/sospechoso.js' %}"></script>
     <link rel="stylesheet" href="{% static 'css/style.css' %}"></link>
     <style>
     
@@ -37,371 +35,42 @@
         <span class="icon-bar"></span>                        
       </button>
       
-      <a class="navbar-brand" href="#"><span><img src="{% static 'img/Database.png' %}" class="img-rounded" style="width:20px;"> DB II</span></a>
+      <a class="navbar-brand" href="{% url 'afectado.views.inicio' %}"><span><img src="{% static 'img/Database.png' %}" class="img-rounded" style="width:20px;"> DB II</span></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a data-toggle="modal" data-target="#screenAfectado" href="#">Afectado</a></li>
-        <li><a data-toggle="modal" data-target="#screenAsientos"  href="#">Denuncia</a></li>
-        <li><a data-toggle="modal" data-target="#screenRegistro" href="#">Sospechoso</a></li>
-        <li><a data-toggle="modal" data-target="#screenAbout" href="#">Delincuentes</a></li>
+        <li class="dropdown">
+        <a class="active dropdown-toggle" data-toggle="dropdown" href="">Afectado
+        <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="{% url 'afectado.views.lista_afectados' %}">Listado</a></li>
+            <li><a href="{% url 'afectado.views.nuevo_afectado' %}">Nuevo</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Denuncia</a></li>
+        <li><a href="#">Sospechoso</a></li>
+        <li><a href="#">Delincuentes</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="index.php"><span class="glyphicon glyphicon-log-in"></span> Salir</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Salir</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<div class="jumbotron">
-  <div class="container text-center">
-  
-    <div class="col-xs-3" id="saludoBienvenida"><img src="{% static 'img/juzgado.jpg' %}" class="img-rounded" style="width:80px;">  
-    <p><b>Administrador: Grupo 6</b>
-</p>
-    </div>
-    <div class="col-xs-9">
-    <h2> JUZGADO #1</h2>  
-    </div>
 
-
-  </div>
-</div>
 <!-- Modal Sospechoso DB-->
-  <div class="container">
-  <h2>Individuos Afectados</h2>
-  <p>Personas que han realizado denuncias:</p>            
+  <div class="container col-md-10 col-md-offset-1">
+  <br><br>
   {% block content %}
   {% endblock %}
   </div>
 
-<div class="col-xs-1"></div>
-<div class="alert alert-success col-xs-8" id="cambioInstant">
-    <strong>Creado por:</strong>
-    <br>    - Guanochanga Byron
-    <br>    - Jácome Danny
-    <br>    - Ushiña Luis
-</div>
-
-<div class="well" id="cambioInstant2" style="display:none;"></div>
-<textarea id="miSms" placeholder="Ingrese su mensaje" class="form-control" style="display:none;"></textarea>
-
- <div id="screenAsientos" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title"><img src="{% static 'img/denuncia.png' %}" class="img-rounded" style="width:20px;"> Denuncia</h4>
-      </div>
-      <div class="modal-body">
-        <form role="form">
-          <div class="form-group col-xs-6">
-            <label for="email">Móvil:</label>
-            <input type="text" class="form-control" id="email">
-          </div>
-          <div class="form-group col-xs-6">
-            <label for="email">Lugar:</label>
-            <input type="text" class="form-control" id="email">
-          </div>
-
-          <div class="form-group col-xs-6">
-            <label for="pwd">Fecha:</label>
-            <input type="date" class="form-control" id="pwd">
-          </div>
-
-          <div class="form-group col-xs-6">
-            <label for="email">Hora:</label>
-            <input type="time" class="form-control" id="email">
-          </div>
-
-          <div class="form-group">
-            <label for="email">Descripción:</label>
-            <textarea type="text" class="form-control" id="email"></textarea>
-          </div>
-
-          <button type="submit" class="btn btn-primary col-md-offset-10">Guardar</button>
-
-          
-        </form>
-      </div>
-
-    </div>
-
-  </div>
-</div> 
-
-   
-
- <div id="screenAfectado" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title"><img src="{% static 'img/user.png' %}" class="img-rounded" style="width:20px;"> Afectado</h4>
-      </div>
-      <div class="modal-body">
-         <form role="form">
-          <div class="form-group col-xs-6">
-            <label for="email">Cédula:</label>
-            <input type="text" class="form-control" id="email">
-          </div>
-          <div class="form-group col-xs-6">
-            <label for="email">Teléfono:</label>
-            <input type="text" class="form-control" id="email">
-          </div>
-
-          <div class="form-group col-xs-6">
-            <label for="pwd">Nombre:</label>
-            <input type="text" class="form-control" id="pwd">
-          </div>
-
-          <div class="form-group col-xs-6">
-            <label for="email">Apellido:</label>
-            <input type="text" class="form-control" id="email">
-          </div>
-
-          <div class="form-group">
-            <label for="email">Dirección:</label>
-            <input type="text" class="form-control" id="email">
-          </div>
-
-          
-
-          <button type="submit" class="btn btn-primary col-md-offset-10">Guardar</button>
-        </form>
-      </div>
-
-    </div>
-
-  </div>
-</div> 
-
- 
-
- <div id="screenRegistro" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <span>
-          <h4 class="modal-title"> <img src="{% static 'img/frm.png' %}" class="img-rounded" style="width:20px;"> Descripción del Sospechoso </h4>
-        <button type="button" class="btn btn-default btn-sm" data-toggle="collapse" data-target="#bosquejo">
-          <span class="glyphicon glyphicon-eye-open" ></span> Preview
-        </button>
-        </span>
-        
-      </div>
-      <div class="modal-body">
-      <div class="collapse" id="bosquejo">
-            <div class="well text-center" > 
-            <img src="{% static 'img/sospechoso/bosquejo.jpg' %}" height="100px">
-            </div>
-        </div>
-
-
-        <form role="form">
-        <div class="form-group col-xs-6">
-            <label for="estatura">Estatura:</label>
-            <select class="form-control" id="estatura">
-              <option >Alto</option>
-              <option >Mediano</option>
-              <option >Bajo</option>
-            </select> 
-        </div>
-        
-        <div class="form-group col-xs-6">
-        <label for="contextura">Contextura:</label>
-           <select class="form-control" id="contextura">
-              <option >Grueso </option>
-              <option >Normal </option>
-              <option >Delgado</option>
-            </select> 
-        </div>
-
-        <div class="form-group col-xs-6">
-        <label for="contextura">Color de ojos:</label>
-           <select class="form-control" id="contextura">
-              <option >Negro  </option>
-              <option >Café </option>
-              <option >Verde</option>
-              <option >Celeste</option>
-              
-            </select> 
-        </div>
-
-        <div class="form-group col-xs-6">
-        <label for="contextura">Cabello:</label>
-           <select class="form-control" id="contextura">
-              <option >Lacio </option>
-              <option >Medio Ondulado </option>
-              <option >Ondulado</option>
-              <option >Afro </option>
-              
-            </select> 
-        </div>
-
-        <div class="form-group col-xs-6">
-        <label for="contextura">Color Cabello:</label>
-           <select class="form-control" id="contextura">
-              <option >Negro  </option>
-              <option >Castaño oscuro </option>
-              <option >Castaño claro</option>
-              <option >Rubio  </option>
-              <option >Blanco  </option>
-              <option >Otro  </option>
-              
-            </select> 
-        </div>
-        
-        <div class="form-group col-xs-6">
-        <label for="contextura">Nariz:</label>
-           <select class="form-control" id="contextura">
-              <option >Aguileña  </option>
-              <option >Recta </option>
-              <option >Pequeña</option>
-              <option >Respingada  </option>
-              <option >Chata  </option>
-              <option >Larga  </option>
-              <option >Gruesa  </option>
-            </select> 
-        </div>
-        <div class="form-group col-xs-6">
-        <label for="contextura">Forma Cara:</label>
-           <select class="form-control" id="contextura">
-              <option >Cuadrada   </option>
-              <option >Triangular </option>
-              <option >Rectangular</option>
-              <option >Respingada  </option>
-              <option >Ovalada  </option>
-              <option >Redonda  </option>
-              <option >Diamante  </option>
-            </select> 
-        </div>
-        <div class="form-group col-xs-6">
-        
-        </div>        
-
-        <button type="submit" class="btn btn-primary col-md-offset-10">Guardar</button>
-        </form>
-      </div>
-
-    </div>
-
-  </div>
-</div> 
-
- 
-
- <div id="screenAbout" class="modal fade" role="dialog">
-  <div class="modal-dialog modal-lg">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title"><img src="{% static 'img/ladron.jpg' %}" class="img-rounded" style="width:20px;"> Delincuentes con las características</h4>
-      </div>
-      <div class="modal-body">
-
-        <div class="collapse" id="descripcion1">
-            <div class="well" style="min-height:220px" id="descripcion-sospechoso"> 
-
-            </div>
-        </div>
-        <div class="collapse" id="descripcion2">
-            <div class="well" style="min-height:220px" id="descripcion-sospechoso2"> 
-
-            </div>
-        </div>
-         <div class="collapse" id="descripcion3">
-            <div class="well" style="min-height:220px" id="descripcion-sospechoso3"> 
-
-            </div>
-        </div>
-        <div class="collapse" id="descripcion4">
-            <div class="well" style="min-height:220px" id="descripcion-sospechoso4"> 
-
-            </div>
-        </div>
-
-
-        <table class="table table-striped">
-          <tr>
-            <th>código<br></th>
-            <th>% <br></th>
-            <th>Estatura</th>
-            <th>Contextura</th>
-            <th>Color de ojos</th>
-            <th>Cabello</th>
-            <th>Color Cabello</th>
-            <th>Nariz</th>
-            <th>Forma Cara</th>
-          </tr>
-          <tr>
-            <td><a data-toggle="collapse" href="#descripcion1" id="12236">12236</a></td>
-            <td>85.6</td>
-            <td>Alto</td>
-            <td>Normal</td>
-            <td>Café</td>
-            <td>Lacio</td>
-            <td>Castaño claro</td>
-            <td>Recta</td>
-            <td>Triangular</td>
-          </tr>
-          <tr>
-          <td><a data-toggle="collapse" href="#descripcion2" id="18472">18472</a></td>
-            <td>79.9</td>
-            <td>Alto</td>
-            <td>Normal</td>
-            <td>Café</td>
-            <td>Lacio</td>
-            <td>Castaño claro</td>
-            <td>Recta</td>
-            <td>Triangular</td>
-          </tr>
-          <tr>
-          <td><a data-toggle="collapse" href="#descripcion3" id="16958">16958</a></td>
-            <td>86.9</td>
-            <td>Alto</td>
-            <td>Normal</td>
-            <td>Café</td>
-            <td>Lacio</td>
-            <td>Castaño claro</td>
-            <td>Recta</td>
-            <td>Triangular</td>
-          </tr>
-          <tr>
-          <td><a data-toggle="collapse" href="#descripcion4" id="05483">05483</a></td>
-            <td>76.8</td>
-            <td>Alto</td>
-            <td>Normal</td>
-            <td>Café</td>
-            <td>Lacio</td>
-            <td>Castaño claro</td>
-            <td>Recta</td>
-            <td>Triangular</td>
-          </tr>
-        </table>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-      </div>
-    </div>
-
-  </div>
-</div>
 
 
 
 <br><br><br><br><br><br>
-<footer class="container-fluid text-center">
+<footer class="container-fluid text-center col-md-10 col-md-offset-1">
   <p>Sangolquí - Ecuador</p>
 </footer>
 
