@@ -7,14 +7,14 @@ class FrmAfectado(forms.ModelForm):
 	"""docstring for FrmAfectado"""
 	class Meta:
 		model = Afectado
-		fields = ('cedula_afectado','telf_afectado','nombre','apellido','direccion',)
+		fields = ('cedula_afectado','telf_afectado','nombre_afectado','apellido_afectado','direccion_afectado',)
 		labels = {	'cedula_afectado': _('Cédula'),
 					'telf_afectado': _('Teléfono/Celular'),
-					'nombre': _('Nombre(s)'),
-					'apellido': _('Apellido(s)'),
-					'direccion': _('Dirección'),}
+					'nombre_afectado': _('Nombre(s)'),
+					'apellido_afectado': _('Apellido(s)'),
+					'direccion_afectado': _('Dirección'),}
 		widgets = {	'cedula_afectado':TextInput(attrs={'class': 'form-control'}),
 					'telf_afectado':TextInput(attrs={'class': 'form-control'}),
-					'nombre':TextInput(attrs={'class': 'form-control'}),
-					'apellido':TextInput(attrs={'class': 'form-control'}),
-					'direccion':Textarea(attrs={'class': 'form-control','rows': 2}),}
+					'nombre_afectado':TextInput(attrs={'class': 'form-control'}),
+					'apellido_afectado':TextInput(attrs={'class': 'form-control'}),
+					'direccion_afectado':Textarea(attrs={'class': 'form-control','rows': 2}),}

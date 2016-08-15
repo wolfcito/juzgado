@@ -15,10 +15,10 @@
     {% for unAfectado in listado %}
       <tr>
         <td><a href="{% url 'afectado.views.detalle_afectado' id=unAfectado.pk %}">{{unAfectado.cedula_afectado}}</a></td>
-        <td>{{unAfectado.apellido}} </td>
-        <td>{{unAfectado.nombre}} </td>
+        <td>{{unAfectado.apellido_afectado}} </td>
+        <td>{{unAfectado.nombre_afectado}} </td>
         <td>{{unAfectado.telf_afectado}}</td>
-        <td>{{unAfectado.direccion}}</td>
+        <td>{{unAfectado.direccion_afectado}}</td>
       </tr>
     {% endfor %}
     </tbody>
