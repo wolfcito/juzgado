@@ -3,7 +3,7 @@ from .models import Afectado
 from .forms import FrmAfectado
 
 def inicio(request):
-	usuario = "Invitado"
+	usuario = "Grupo 6"
 	return render(request, 'afectado/inicio.html',{'usuario':usuario})
 
 def lista_afectados(request):
