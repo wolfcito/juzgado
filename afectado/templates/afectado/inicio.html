@@ -1,10 +1,14 @@
 {% extends 'afectado/base.html' %}
+<!-- {% load staticfiles  %} -->
 {% block content %}
 <div class="jumbotron">
   <div class="container text-center">
   
     <div class="col-xs-3">  
-    <p><b>Administrador: {{ usuario }}</b></p>
+    <p>
+    <img src="{% static 'img/ico.png' %}" class="img-rounded" style="width:50%;">
+    <b>Administrador: {{ usuario }}</b>
+    </p>
     </div>
     <div class="col-xs-9">
     	<h2> JUZGADO #1</h2>  
